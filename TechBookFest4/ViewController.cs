@@ -3,6 +3,7 @@ using UIKit;
 using Foundation;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace TechBookFest4
 {
@@ -41,6 +42,8 @@ namespace TechBookFest4
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
             tableView.DeselectRow(indexPath, true);
+            var vc = new ColorViewController(this._colors[(int)indexPath.Item]);
+            this.NavigationController.PushViewController(vc, true);
 		}
 	}
 }
